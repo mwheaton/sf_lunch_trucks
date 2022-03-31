@@ -1,3 +1,27 @@
+
+Challenge accepted.  Some of the most used scripts do a small task well.  I propose to keep it simple and write something that will help the user figure out what's in range and what they have. So I'm going to call the script "What's for lunch?" or "wfl"
+
+I tend to write scripts by testing as I go.  Each line, or group of lines will be put through the paces as it gets written.  I find this delivers stable code and the debugging process is minimal. After all, if you only changed a few lines of code, that's going to be where the problem is, right?  We will start with reading the csv file and go from there.
+
+Initially, the script should list only trucks that are nearby. I will use zip code for the initial version. But we should think about ways to improve that, probably enter lat/long and a distance to locate trucks in range, probably +/- the known lat/long (a square), upgrade to a circle?
+
+Initial steps: 
+
+1) read the csv
+
+2) read the csv and split the fields into individual elements
+
+3) translate those elements into a data structure, probably an array of hash elements, or a hash of hashes keyed off an unique key (if there is one). Another possibility is to create a class object for each line and turn the array of lines into an array of objects
+
+4) select array elements that meet selected criteria
+
+5) output select fields that meet the criteria
+
+note: The first line of the csv is the headerlist --- it would make sense to use those values as the hash keys and would add flexibility if the csv were to change.
+
+
+
+------------------------------------------------------------------------------------------
 # Engineering Challenge
 
 We strive to be a practical and pragmatic team here at Estee Lauder Companies. That extends to the way that we work with you to understand if this team is a great fit for you. We want you to come away with a great understanding of the kind of things that we actually do day to day and what it is like to work in our teams.
