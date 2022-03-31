@@ -19,6 +19,10 @@ Initial steps:
 
 note: The first line of the csv is the headerlist --- it would make sense to use those values as the hash keys and would add flexibility if the csv were to change.
 
+Notes:
+-----
+
+- I don't see anything that is guaranteed to be an unique ID for the vendors on this list. Anything that is unique today, may not be unique tomorrow.  Location ID does not preclude more than one vendor at a given location.  If we learn that a permit is issued to each vendor for each truck/cart/other, then perhaps we could use that.  For now, I have to assume that one permit may map to multiple vehicles
 
 
 ------------------------------------------------------------------------------------------

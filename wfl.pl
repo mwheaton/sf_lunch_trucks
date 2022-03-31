@@ -15,9 +15,25 @@ sub load_csv()
   {
 
     @csvline_array = (<CSV>);
+
+    # process the first line to get the field names
+    @field_list = split(',', $csvline_array[0]);
+    shift @csvline_array;                         # take the headers off the list of lines
+
+    foreach $field (@field_list)
+      {
+	print "F: $field\n";
+      }
+    exit;
+
     foreach $csvline (@csvline_array)
       {
+	@elem_array = split(',', $csvline);
 	print $csvline;
+	foreach $elem (@elem_array)
+	  {
+	    print "E $elem\n";
+	  }
       }
   }
 ##############################
