@@ -2,7 +2,7 @@
 
 use Data::Dumper;
 $Data::Dumper::Purity = 1;
-$Data::Dumper::Indent = 1;
+$Data::Dumper::Indent = 2;
 # the csv file might make more sense as a command line argument, especially if it changes, or different sources are used
 # it might also be replaced by data on the web retrieved with a get (do we still use cgi-bin?)
 
@@ -42,19 +42,19 @@ sub load_csv()
       {
 	chomp $csvline;                      # get rid of newline
 	@elem_array = split(',', $csvline);
-	my %vendor_info = ();                   # make sure to clear the hash in case fields aren't reset 
+	my $vendor_info = {};                   # make sure to clear the hash in case fields aren't reset 
 	for(my $i = 0; $i < @field_list; $i++)
 	  {
 	    print "$i: $field_list[$i] ---> $elem_array[$i]\n";
-	    $vendor_info{"$field_list[$i]"} = $elem_array[$i];
+	    $vendor_info->{$field_list[$i]} = $elem_array[$i];
 	  }
-	print Dumper(\%vendor_info);
-	push(@truck_data, %vendor_info);
+	# print Dumper(\$vendor_info);
+	push(@truck_data, $vendor_info);
 
       } # foreach $csvline
     print Dumper(\@truck_data);
 
-    print Dumper(\@truck_data[3]);
+    # print Dumper(\@truck_data[3]);
 
 #     foreach $csvline (@csvline_array)
 #       {
