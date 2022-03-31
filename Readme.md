@@ -24,6 +24,13 @@ Notes:
 
 - I don't see anything that is guaranteed to be an unique ID for the vendors on this list. Anything that is unique today, may not be unique tomorrow.  Location ID does not preclude more than one vendor at a given location.  If we learn that a permit is issued to each vendor for each truck/cart/other, then perhaps we could use that.  For now, I have to assume that one permit may map to multiple vehicles
 
+- I'm so rusty, it just occurred to me that I need to concern myself with scoping rules.  Some of the data should be global, but making the rest local with 'my' is a very good idea
+
+- the data I'm getting for my last line does not match up with the last line in the csv. Either I have a bug, or the data has an issue that I don't know about
+
+- finding the csv I downloaded does not match the csv in github.  Created a short one for testing
+
+- having issues pushing a hash onto an array.. definitely need to review ;)
 
 ------------------------------------------------------------------------------------------
 # Engineering Challenge
