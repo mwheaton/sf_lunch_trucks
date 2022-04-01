@@ -39,6 +39,10 @@ Notes:
 
 - 'Neighborhoods_(old) is problematic because of the method we used to confirm whether it was a valid field or not. For now, we are taking the parentheses out of the field name
 
+- I have input and output working.  I did a few hours yesterday and a couple hours this morning.  I could do more, but this seems like a good place to stop.  
+
+- The big surprise from my perspective is I had forgotten how much I enjoyed writing some code.  My current job has not really afforded me that pleasure, so the challenge has reminded me that something is missing in a big way.
+
 ------------------------------------------------------------------------------------------
 # Engineering Challenge
 

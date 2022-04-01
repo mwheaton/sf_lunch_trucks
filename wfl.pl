@@ -109,6 +109,25 @@ sub check_user_fields()
       { exit; }
 
   } # sub check_user_fields
+
+
+sub print_output
+  {
+    # argument list is the array of field values to print out
+    my @lof = @_;
+
+    print "LOF: @lof\n";
+    foreach $line (@truck_data)
+      {
+	foreach $field (@lof)
+	  {
+	    # print Dumper(\%$line);
+	    print "$field: $line->{$field}\n";
+	  }
+	print "\n";
+      }
+
+  } # sub print_output
 ##############################
 # main script
 ##############################
@@ -137,24 +156,24 @@ sub check_user_fields()
       exit;
     }
 
-# FIXTHIS
-#   load_csv();
+
+  load_csv();
 
   # user provided list of fields to print
   if($opt_l)
     {
       # use the list provided by user
-      print "$opt_l\n";
-
       # we would like a list separated by whitespace, but user may insert commas, so check
       $opt_l =~ s/,/ /g;                      # replace comma with ' '
       @user_fields = split(" ", $opt_l);
 
-      print Dumper(\@user_fields);
       # also need to check to ensure the fields entered are valid
       check_user_fields();
+
+      print_output(@user_fields);
     }
   else
     {
       # use the complete header list
+      print_output(@field_list)
     }
