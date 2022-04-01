@@ -39,9 +39,13 @@ Notes:
 
 - 'Neighborhoods_(old) is problematic because of the method we used to confirm whether it was a valid field or not. For now, we are taking the parentheses out of the field name
 
-- I have input and output working.  I did a few hours yesterday and a couple hours this morning.  I could do more, but this seems like a good place to stop.  
+- I have input and output working.  I did a few hours yesterday and a couple hours this morning.  I could do more, but this seems like a good place to stop. The script is in a place where we can start to examine the csv in a more careful way.  This could be done by inserting print statements that print only the fields we are interested in, but it's likely we'll want to do this kind of thing whenever an issue arises.  We can now see what we have and can leverage it to get what we want.
 
 - The big surprise from my perspective is I had forgotten how much I enjoyed writing some code.  My current job has not really afforded me that pleasure, so the challenge has reminded me that something is missing in a big way.
+
+- I could have spent time figuring out how to retrieve the data from the web page.  I haven't done that since cgi-bin was the primary method and I've forgotten a lot.  I used cgi-bin to retrieve employee info at IBM --- someone wanted a list of all the employees under our director and there was no easy way to do that.  I also used cgi-bin to provide an interactive web page listing regression test differences and providing an interface for the developers to approve or reject them.
+
+- again, some of the most used scripts have been to retrieve just one small piece of information from a sea of data, they did one thing well and turned out to provide unexpected uses
 
 ------------------------------------------------------------------------------------------
 # Engineering Challenge
