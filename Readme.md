@@ -30,7 +30,14 @@ Notes:
 
 - finding the csv I downloaded does not match the csv in github.  Created a short one for testing
 
-- having issues pushing a hash onto an array.. definitely need to review ;)
+- having issues pushing a hash onto an array.. definitely need to review ;) Solved: the array of hashes needs to be built with anonymous hashes.  Once I reviewed the example in the book, this was obvious.
+
+- I would like to add a utility to specify the fields I would like to print out.  We can parse a list of fields provided on the command line as an argument to a flag and use that to specify the fields.  But fields currently have whitespace in them which is problematic.  So it would make sense to "normalize them" by replacing space with an underscore
+	- so we can read the first line to get the list of fields, massage them to trim off leading and trailing whitespace, turn internal whitespace into underscores, and print that out.  Then we can list them out to the user with the right flag.  The user can provide the list of fields he wishes to see as an argument to a flag.
+
+- Yesterday, I noticed that there are inconsistencies in the data. For example, the zip codes are not all there, some are incorrect.  It's important not to assume the data is correct until you've confirmed it is.  This points to a need to find the bad data and correct it.  Generating a list of problem data becomes a priority so that it can be fixed.  Perhaps a campaign to "help customers find you" by correcting your information.
+
+
 
 ------------------------------------------------------------------------------------------
 # Engineering Challenge
