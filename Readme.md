@@ -37,7 +37,7 @@ Notes:
 
 - Yesterday, I noticed that there are inconsistencies in the data. For example, the zip codes are not all there, some are incorrect.  It's important not to assume the data is correct until you've confirmed it is.  This points to a need to find the bad data and correct it.  Generating a list of problem data becomes a priority so that it can be fixed.  Perhaps a campaign to "help customers find you" by correcting your information.
 
-
+- 'Neighborhoods_(old) is problematic because of the method we used to confirm whether it was a valid field or not. For now, we are taking the parentheses out of the field name
 
 ------------------------------------------------------------------------------------------
 # Engineering Challenge

@@ -35,6 +35,11 @@ sub load_headers()
 	$field =~ s/^(\.*)(\s*)/\1/;  # trailing spaces
 	$field =~ s/\s+/_/;  # internal spaces
 
+	# pattern matching on "Neighborhoods_(old)" is not working, suspect it's the parentheses (confirmed)
+	# this may not be the correct solution, but it works
+	$field =~ s/\(//;
+	$field =~ s/\)//;
+
 	push(@field_list, $field);
       }
     # print Dumper(\@field_list);
@@ -73,6 +78,37 @@ sub load_csv()
 
       } # foreach $csvline
   } # sub load_csv
+
+sub check_user_fields()
+  {
+    # I know, it's criminal that I'm just using global variables
+
+    # print Dumper(\@field_list);
+    $field_list = join(" ", @field_list);
+    # print "FL: $field_list\n";
+
+    my $field_fail = 0;
+    foreach $field (@user_fields)
+      {
+	# confirm that each field user provided is in the list of fields provided by the csv
+	# right now I'm wishing my complete list of fields was in a hash, but we only need to confirm that we have a match so...
+	# we'll turn the @field_list back onto a string and pattern match
+
+
+	if($field_list =~ /$field/)
+	  {
+	    # print "$field okay\n";
+	  }
+	else
+	  {
+	    print "$field not a valid header\n";
+	    $field_fail = 1;
+	  }
+      } # foreach
+    if($field_fail)
+      { exit; }
+
+  } # sub check_user_fields
 ##############################
 # main script
 ##############################
@@ -91,14 +127,34 @@ sub load_csv()
 # -s         -- show the list of possible fields
   getopts("sl:");
 
-
+  # get the top line in the csv and turn them into a list of valid fields
   load_headers();
 
+  # provide user with a list of fields to choose from
   if($opt_s)
     {
       print_headers();
       exit;
     }
 
-  load_csv();
+# FIXTHIS
+#   load_csv();
 
+  # user provided list of fields to print
+  if($opt_l)
+    {
+      # use the list provided by user
+      print "$opt_l\n";
+
+      # we would like a list separated by whitespace, but user may insert commas, so check
+      $opt_l =~ s/,/ /g;                      # replace comma with ' '
+      @user_fields = split(" ", $opt_l);
+
+      print Dumper(\@user_fields);
+      # also need to check to ensure the fields entered are valid
+      check_user_fields();
+    }
+  else
+    {
+      # use the complete header list
+    }
